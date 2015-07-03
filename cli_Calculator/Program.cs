@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,6 +11,10 @@ namespace cli_Calculator
     {
         static void Main( string[] args )
         {
+            var culture = CultureInfo.CreateSpecificCulture( "en-US" );
+            CultureInfo.DefaultThreadCurrentCulture   = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
+ 
             var expression = string.Join( "", args );
             if( expression == string.Empty )
             {

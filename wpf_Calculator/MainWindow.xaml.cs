@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,13 +25,17 @@ namespace wpf_Calculator
     {
         public MainWindow()
         {
+            var culture = CultureInfo.CreateSpecificCulture( "en-US" );
+            CultureInfo.DefaultThreadCurrentCulture   = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
+
             InitializeComponent();
         }
 
         private void cExpression_TextChanged( object sender, TextChangedEventArgs e )
         {
             //cResult.Content = "= " + cExpression.Text;
-            cResult.Content = EvaluateExpression( cExpression.Text );
+            //cResult.Content = EvaluateExpression( cExpression.Text );
         }
 
         private void cCalculate_Click( object sender, RoutedEventArgs e )
